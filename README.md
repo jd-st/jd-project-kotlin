@@ -9,6 +9,8 @@
 
 The Jd Project Kotlin SDK provides convenient access to the Jd Project REST API from applications written in Kotlin.
 
+The Jd Project Kotlin SDK is similar to the Jd Project Java SDK but with minor differences that make it more ergonomic for use in Kotlin, such as nullable values instead of `Optional`, `Sequence` instead of `Stream`, and suspend functions instead of `CompletableFuture`.
+
 It is generated with [Stainless](https://www.stainless.com/).
 
 <!-- x-release-please-start-version -->
