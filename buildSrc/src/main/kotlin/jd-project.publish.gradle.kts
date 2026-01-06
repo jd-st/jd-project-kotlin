@@ -11,7 +11,7 @@ configure<PublishingExtension> {
             pom {
                 name.set("OpenAPI 3.0 Pet Store")
                 description.set("This is a sample Pet Store Server based on the OpenAPI 3.0 specification.")
-                url.set("https://www.github.com/stainless-sdks/jd-project-kotlin")
+                url.set("https://www.github.com/jd-st/jd-project-kotlin")
 
                 licenses {
                     license {
@@ -26,9 +26,9 @@ configure<PublishingExtension> {
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/stainless-sdks/jd-project-kotlin.git")
-                    developerConnection.set("scm:git:git://github.com/stainless-sdks/jd-project-kotlin.git")
-                    url.set("https://github.com/stainless-sdks/jd-project-kotlin")
+                    connection.set("scm:git:git://github.com/jd-st/jd-project-kotlin.git")
+                    developerConnection.set("scm:git:git://github.com/jd-st/jd-project-kotlin.git")
+                    url.set("https://github.com/jd-st/jd-project-kotlin")
                 }
 
                 versionMapping {
