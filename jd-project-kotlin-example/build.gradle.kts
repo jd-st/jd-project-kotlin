@@ -4,7 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":jd-project-kotlin"))
+    implementation(project(":jd-project-kotlin-core"))
+    implementation(project(":jd-project-kotlin-client-okhttp"))
 }
 
 application {
