@@ -1,20 +1,32 @@
 # Jd Project Kotlin API Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.jd_project.api/jd-project-kotlin)](https://central.sonatype.com/artifact/com.jd_project.api/jd-project-kotlin/0.0.1)
-[![javadoc](https://javadoc.io/badge2/com.jd_project.api/jd-project-kotlin/0.0.1/javadoc.svg)](https://javadoc.io/doc/com.jd_project.api/jd-project-kotlin/0.0.1)
+<!-- x-release-please-start-version -->
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.jd_project.api/jd-project-kotlin)](https://central.sonatype.com/artifact/com.jd_project.api/jd-project-kotlin/0.1.0)
+[![javadoc](https://javadoc.io/badge2/com.jd_project.api/jd-project-kotlin/0.1.0/javadoc.svg)](https://javadoc.io/doc/com.jd_project.api/jd-project-kotlin/0.1.0)
+
+<!-- x-release-please-end -->
 
 The Jd Project Kotlin SDK provides convenient access to the Jd Project REST API from applications written in Kotlin.
 
+The Jd Project Kotlin SDK is similar to the Jd Project Java SDK but with minor differences that make it more ergonomic for use in Kotlin, such as nullable values instead of `Optional`, `Sequence` instead of `Stream`, and suspend functions instead of `CompletableFuture`.
+
 It is generated with [Stainless](https://www.stainless.com/).
 
-KDocs are available on [javadoc.io](https://javadoc.io/doc/com.jd_project.api/jd-project-kotlin/0.0.1).
+<!-- x-release-please-start-version -->
+
+KDocs are available on [javadoc.io](https://javadoc.io/doc/com.jd_project.api/jd-project-kotlin/0.1.0).
+
+<!-- x-release-please-end -->
 
 ## Installation
+
+<!-- x-release-please-start-version -->
 
 ### Gradle
 
 ```kotlin
-implementation("com.jd_project.api:jd-project-kotlin:0.0.1")
+implementation("com.jd_project.api:jd-project-kotlin:0.1.0")
 ```
 
 ### Maven
@@ -23,9 +35,11 @@ implementation("com.jd_project.api:jd-project-kotlin:0.0.1")
 <dependency>
   <groupId>com.jd_project.api</groupId>
   <artifactId>jd-project-kotlin</artifactId>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
 </dependency>
 ```
+
+<!-- x-release-please-end -->
 
 ## Requirements
 
@@ -243,6 +257,8 @@ If the SDK threw an exception, but you're _certain_ the version is compatible, t
 
 > [!CAUTION]
 > We make no guarantee that the SDK works correctly when the Jackson version check is disabled.
+
+Also note that there are bugs in older Jackson versions that can affect the SDK. We don't work around all Jackson bugs ([example](https://github.com/FasterXML/jackson-databind/issues/3240)) and expect users to upgrade Jackson for those instead.
 
 ## Network options
 
@@ -572,4 +588,4 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/jd-project-kotlin/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/jd-st/jd-project-kotlin/issues) with questions, bugs, or suggestions.
