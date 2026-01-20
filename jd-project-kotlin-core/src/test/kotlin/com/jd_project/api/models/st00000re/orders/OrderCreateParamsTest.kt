@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.models.st000re.orders
+package com.jd_project.api.models.st00000re.orders
 
 import com.jd_project.api.models.Order
 import java.time.OffsetDateTime

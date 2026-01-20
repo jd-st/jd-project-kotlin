@@ -16,7 +16,7 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest
 import com.jd_project.api.client.JdProjectClient
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.St000reListInventoryParams
+import com.jd_project.api.models.st00000re.St00000reListInventoryParams
 import java.time.OffsetDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
@@ -41,11 +41,11 @@ internal class ServiceParamsTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun listInventory() {
-        val st000reService = client.st000re()
+        val st00000reService = client.st00000re()
         stubFor(get(anyUrl()).willReturn(ok("{}")))
 
-        st000reService.listInventory(
-            St000reListInventoryParams.builder()
+        st00000reService.listInventory(
+            St00000reListInventoryParams.builder()
                 .putAdditionalHeader("Secret-Header", "42")
                 .putAdditionalQueryParam("secret_query_param", "42")
                 .build()
@@ -61,7 +61,7 @@ internal class ServiceParamsTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun create() {
-        val orderService = client.st000re().orders()
+        val orderService = client.st00000re().orders()
         stubFor(post(anyUrl()).willReturn(ok("{}")))
 
         orderService.create(

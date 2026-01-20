@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.models.st000re
+package com.jd_project.api.models.st00000re
 
 import com.jd_project.api.core.Params
 import com.jd_project.api.core.http.Headers
@@ -8,7 +8,7 @@ import com.jd_project.api.core.http.QueryParams
 import java.util.Objects
 
 /** Returns a map of status codes to quantities */
-class St000reListInventoryParams
+class St00000reListInventoryParams
 private constructor(
     private val additionalHeaders: Headers,
     private val additionalQueryParams: QueryParams,
@@ -24,23 +24,23 @@ private constructor(
 
     companion object {
 
-        fun none(): St000reListInventoryParams = builder().build()
+        fun none(): St00000reListInventoryParams = builder().build()
 
         /**
-         * Returns a mutable builder for constructing an instance of [St000reListInventoryParams].
+         * Returns a mutable builder for constructing an instance of [St00000reListInventoryParams].
          */
         fun builder() = Builder()
     }
 
-    /** A builder for [St000reListInventoryParams]. */
+    /** A builder for [St00000reListInventoryParams]. */
     class Builder internal constructor() {
 
         private var additionalHeaders: Headers.Builder = Headers.builder()
         private var additionalQueryParams: QueryParams.Builder = QueryParams.builder()
 
-        internal fun from(st000reListInventoryParams: St000reListInventoryParams) = apply {
-            additionalHeaders = st000reListInventoryParams.additionalHeaders.toBuilder()
-            additionalQueryParams = st000reListInventoryParams.additionalQueryParams.toBuilder()
+        internal fun from(st00000reListInventoryParams: St00000reListInventoryParams) = apply {
+            additionalHeaders = st00000reListInventoryParams.additionalHeaders.toBuilder()
+            additionalQueryParams = st00000reListInventoryParams.additionalQueryParams.toBuilder()
         }
 
         fun additionalHeaders(additionalHeaders: Headers) = apply {
@@ -142,12 +142,12 @@ private constructor(
         }
 
         /**
-         * Returns an immutable instance of [St000reListInventoryParams].
+         * Returns an immutable instance of [St00000reListInventoryParams].
          *
          * Further updates to this [Builder] will not mutate the returned instance.
          */
-        fun build(): St000reListInventoryParams =
-            St000reListInventoryParams(additionalHeaders.build(), additionalQueryParams.build())
+        fun build(): St00000reListInventoryParams =
+            St00000reListInventoryParams(additionalHeaders.build(), additionalQueryParams.build())
     }
 
     override fun _headers(): Headers = additionalHeaders
@@ -159,7 +159,7 @@ private constructor(
             return true
         }
 
-        return other is St000reListInventoryParams &&
+        return other is St00000reListInventoryParams &&
             additionalHeaders == other.additionalHeaders &&
             additionalQueryParams == other.additionalQueryParams
     }
@@ -167,5 +167,5 @@ private constructor(
     override fun hashCode(): Int = Objects.hash(additionalHeaders, additionalQueryParams)
 
     override fun toString() =
-        "St000reListInventoryParams{additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
+        "St00000reListInventoryParams{additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
 }

@@ -6,8 +6,8 @@ import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.core.getPackageVersion
 import com.jd_project.api.services.blocking.PetService
 import com.jd_project.api.services.blocking.PetServiceImpl
-import com.jd_project.api.services.blocking.St000reService
-import com.jd_project.api.services.blocking.St000reServiceImpl
+import com.jd_project.api.services.blocking.St00000reService
+import com.jd_project.api.services.blocking.St00000reServiceImpl
 import com.jd_project.api.services.blocking.UserService
 import com.jd_project.api.services.blocking.UserServiceImpl
 
@@ -30,7 +30,9 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
 
     private val pets: PetService by lazy { PetServiceImpl(clientOptionsWithUserAgent) }
 
-    private val st000re: St000reService by lazy { St000reServiceImpl(clientOptionsWithUserAgent) }
+    private val st00000re: St00000reService by lazy {
+        St00000reServiceImpl(clientOptionsWithUserAgent)
+    }
 
     private val users: UserService by lazy { UserServiceImpl(clientOptionsWithUserAgent) }
 
@@ -43,7 +45,7 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
 
     override fun pets(): PetService = pets
 
-    override fun st000re(): St000reService = st000re
+    override fun st00000re(): St00000reService = st00000re
 
     override fun users(): UserService = users
 
@@ -56,8 +58,8 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
             PetServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
-        private val st000re: St000reService.WithRawResponse by lazy {
-            St000reServiceImpl.WithRawResponseImpl(clientOptions)
+        private val st00000re: St00000reService.WithRawResponse by lazy {
+            St00000reServiceImpl.WithRawResponseImpl(clientOptions)
         }
 
         private val users: UserService.WithRawResponse by lazy {
@@ -73,7 +75,7 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
 
         override fun pets(): PetService.WithRawResponse = pets
 
-        override fun st000re(): St000reService.WithRawResponse = st000re
+        override fun st00000re(): St00000reService.WithRawResponse = st00000re
 
         override fun users(): UserService.WithRawResponse = users
     }

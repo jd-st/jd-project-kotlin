@@ -1,27 +1,24 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.models.st000re.orders
+package com.jd_project.api.models.st00000re.orders
 
-import com.jd_project.api.core.JsonValue
 import com.jd_project.api.core.Params
 import com.jd_project.api.core.http.Headers
 import com.jd_project.api.core.http.QueryParams
-import com.jd_project.api.core.immutableEmptyMap
-import com.jd_project.api.models.Order
 import java.util.Objects
 
-/** Place a new order in the store */
-class OrderCreateParams
+/**
+ * For valid response try integer IDs with value <= 5 or > 10. Other values will generate
+ * exceptions.
+ */
+class OrderRetrieveParams
 private constructor(
-    private val order: Order?,
+    private val orderId: Long?,
     private val additionalHeaders: Headers,
     private val additionalQueryParams: QueryParams,
 ) : Params {
 
-    fun order(): Order? = order
-
-    fun _additionalBodyProperties(): Map<String, JsonValue> =
-        order?._additionalProperties() ?: immutableEmptyMap()
+    fun orderId(): Long? = orderId
 
     /** Additional headers to send with the request. */
     fun _additionalHeaders(): Headers = additionalHeaders
@@ -33,26 +30,33 @@ private constructor(
 
     companion object {
 
-        fun none(): OrderCreateParams = builder().build()
+        fun none(): OrderRetrieveParams = builder().build()
 
-        /** Returns a mutable builder for constructing an instance of [OrderCreateParams]. */
+        /** Returns a mutable builder for constructing an instance of [OrderRetrieveParams]. */
         fun builder() = Builder()
     }
 
-    /** A builder for [OrderCreateParams]. */
+    /** A builder for [OrderRetrieveParams]. */
     class Builder internal constructor() {
 
-        private var order: Order? = null
+        private var orderId: Long? = null
         private var additionalHeaders: Headers.Builder = Headers.builder()
         private var additionalQueryParams: QueryParams.Builder = QueryParams.builder()
 
-        internal fun from(orderCreateParams: OrderCreateParams) = apply {
-            order = orderCreateParams.order
-            additionalHeaders = orderCreateParams.additionalHeaders.toBuilder()
-            additionalQueryParams = orderCreateParams.additionalQueryParams.toBuilder()
+        internal fun from(orderRetrieveParams: OrderRetrieveParams) = apply {
+            orderId = orderRetrieveParams.orderId
+            additionalHeaders = orderRetrieveParams.additionalHeaders.toBuilder()
+            additionalQueryParams = orderRetrieveParams.additionalQueryParams.toBuilder()
         }
 
-        fun order(order: Order?) = apply { this.order = order }
+        fun orderId(orderId: Long?) = apply { this.orderId = orderId }
+
+        /**
+         * Alias for [Builder.orderId].
+         *
+         * This unboxed primitive overload exists for backwards compatibility.
+         */
+        fun orderId(orderId: Long) = orderId(orderId as Long?)
 
         fun additionalHeaders(additionalHeaders: Headers) = apply {
             this.additionalHeaders.clear()
@@ -153,15 +157,19 @@ private constructor(
         }
 
         /**
-         * Returns an immutable instance of [OrderCreateParams].
+         * Returns an immutable instance of [OrderRetrieveParams].
          *
          * Further updates to this [Builder] will not mutate the returned instance.
          */
-        fun build(): OrderCreateParams =
-            OrderCreateParams(order, additionalHeaders.build(), additionalQueryParams.build())
+        fun build(): OrderRetrieveParams =
+            OrderRetrieveParams(orderId, additionalHeaders.build(), additionalQueryParams.build())
     }
 
-    fun _body(): Order? = order
+    fun _pathParam(index: Int): String =
+        when (index) {
+            0 -> orderId?.toString() ?: ""
+            else -> ""
+        }
 
     override fun _headers(): Headers = additionalHeaders
 
@@ -172,14 +180,14 @@ private constructor(
             return true
         }
 
-        return other is OrderCreateParams &&
-            order == other.order &&
+        return other is OrderRetrieveParams &&
+            orderId == other.orderId &&
             additionalHeaders == other.additionalHeaders &&
             additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = Objects.hash(order, additionalHeaders, additionalQueryParams)
+    override fun hashCode(): Int = Objects.hash(orderId, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
-        "OrderCreateParams{order=$order, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
+        "OrderRetrieveParams{orderId=$orderId, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
 }

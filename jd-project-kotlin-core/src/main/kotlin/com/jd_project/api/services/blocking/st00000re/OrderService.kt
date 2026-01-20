@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.async.st000re
+package com.jd_project.api.services.blocking.st00000re
 
 import com.google.errorprone.annotations.MustBeClosed
 import com.jd_project.api.core.ClientOptions
@@ -8,11 +8,11 @@ import com.jd_project.api.core.RequestOptions
 import com.jd_project.api.core.http.HttpResponse
 import com.jd_project.api.core.http.HttpResponseFor
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
-import com.jd_project.api.models.st000re.orders.OrderDeleteParams
-import com.jd_project.api.models.st000re.orders.OrderRetrieveParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderDeleteParams
+import com.jd_project.api.models.st00000re.orders.OrderRetrieveParams
 
-interface OrderServiceAsync {
+interface OrderService {
 
     /**
      * Returns a view of this service that provides access to raw HTTP responses for each method.
@@ -24,65 +24,60 @@ interface OrderServiceAsync {
      *
      * The original service is not modified.
      */
-    fun withOptions(modifier: (ClientOptions.Builder) -> Unit): OrderServiceAsync
+    fun withOptions(modifier: (ClientOptions.Builder) -> Unit): OrderService
 
     /** Place a new order in the store */
-    suspend fun create(
+    fun create(
         params: OrderCreateParams = OrderCreateParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
     ): Order
 
     /** @see create */
-    suspend fun create(
-        order: Order,
-        requestOptions: RequestOptions = RequestOptions.none(),
-    ): Order = create(OrderCreateParams.builder().order(order).build(), requestOptions)
+    fun create(order: Order, requestOptions: RequestOptions = RequestOptions.none()): Order =
+        create(OrderCreateParams.builder().order(order).build(), requestOptions)
 
     /** @see create */
-    suspend fun create(requestOptions: RequestOptions): Order =
+    fun create(requestOptions: RequestOptions): Order =
         create(OrderCreateParams.none(), requestOptions)
 
     /**
      * For valid response try integer IDs with value <= 5 or > 10. Other values will generate
      * exceptions.
      */
-    suspend fun retrieve(
+    fun retrieve(
         orderId: Long,
         params: OrderRetrieveParams = OrderRetrieveParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
     ): Order = retrieve(params.toBuilder().orderId(orderId).build(), requestOptions)
 
     /** @see retrieve */
-    suspend fun retrieve(
+    fun retrieve(
         params: OrderRetrieveParams,
         requestOptions: RequestOptions = RequestOptions.none(),
     ): Order
 
     /** @see retrieve */
-    suspend fun retrieve(orderId: Long, requestOptions: RequestOptions): Order =
+    fun retrieve(orderId: Long, requestOptions: RequestOptions): Order =
         retrieve(orderId, OrderRetrieveParams.none(), requestOptions)
 
     /**
      * For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will
      * generate API errors
      */
-    suspend fun delete(
+    fun delete(
         orderId: Long,
         params: OrderDeleteParams = OrderDeleteParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
     ) = delete(params.toBuilder().orderId(orderId).build(), requestOptions)
 
     /** @see delete */
-    suspend fun delete(
-        params: OrderDeleteParams,
-        requestOptions: RequestOptions = RequestOptions.none(),
-    )
+    fun delete(params: OrderDeleteParams, requestOptions: RequestOptions = RequestOptions.none())
 
     /** @see delete */
-    suspend fun delete(orderId: Long, requestOptions: RequestOptions) =
+    fun delete(orderId: Long, requestOptions: RequestOptions) =
         delete(orderId, OrderDeleteParams.none(), requestOptions)
 
-    /** A view of [OrderServiceAsync] that provides access to raw HTTP responses for each method. */
+    /** A view of [OrderService] that provides access to raw HTTP responses for each method. */
     interface WithRawResponse {
 
         /**
@@ -90,23 +85,21 @@ interface OrderServiceAsync {
          *
          * The original service is not modified.
          */
-        fun withOptions(
-            modifier: (ClientOptions.Builder) -> Unit
-        ): OrderServiceAsync.WithRawResponse
+        fun withOptions(modifier: (ClientOptions.Builder) -> Unit): OrderService.WithRawResponse
 
         /**
-         * Returns a raw HTTP response for `post /st000re/order`, but is otherwise the same as
-         * [OrderServiceAsync.create].
+         * Returns a raw HTTP response for `post /st00000re/order`, but is otherwise the same as
+         * [OrderService.create].
          */
         @MustBeClosed
-        suspend fun create(
+        fun create(
             params: OrderCreateParams = OrderCreateParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponseFor<Order>
 
         /** @see create */
         @MustBeClosed
-        suspend fun create(
+        fun create(
             order: Order,
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponseFor<Order> =
@@ -114,15 +107,15 @@ interface OrderServiceAsync {
 
         /** @see create */
         @MustBeClosed
-        suspend fun create(requestOptions: RequestOptions): HttpResponseFor<Order> =
+        fun create(requestOptions: RequestOptions): HttpResponseFor<Order> =
             create(OrderCreateParams.none(), requestOptions)
 
         /**
-         * Returns a raw HTTP response for `get /st000re/order/{orderId}`, but is otherwise the same
-         * as [OrderServiceAsync.retrieve].
+         * Returns a raw HTTP response for `get /st00000re/order/{orderId}`, but is otherwise the
+         * same as [OrderService.retrieve].
          */
         @MustBeClosed
-        suspend fun retrieve(
+        fun retrieve(
             orderId: Long,
             params: OrderRetrieveParams = OrderRetrieveParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
@@ -131,24 +124,22 @@ interface OrderServiceAsync {
 
         /** @see retrieve */
         @MustBeClosed
-        suspend fun retrieve(
+        fun retrieve(
             params: OrderRetrieveParams,
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponseFor<Order>
 
         /** @see retrieve */
         @MustBeClosed
-        suspend fun retrieve(
-            orderId: Long,
-            requestOptions: RequestOptions,
-        ): HttpResponseFor<Order> = retrieve(orderId, OrderRetrieveParams.none(), requestOptions)
+        fun retrieve(orderId: Long, requestOptions: RequestOptions): HttpResponseFor<Order> =
+            retrieve(orderId, OrderRetrieveParams.none(), requestOptions)
 
         /**
-         * Returns a raw HTTP response for `delete /st000re/order/{orderId}`, but is otherwise the
-         * same as [OrderServiceAsync.delete].
+         * Returns a raw HTTP response for `delete /st00000re/order/{orderId}`, but is otherwise the
+         * same as [OrderService.delete].
          */
         @MustBeClosed
-        suspend fun delete(
+        fun delete(
             orderId: Long,
             params: OrderDeleteParams = OrderDeleteParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
@@ -156,14 +147,14 @@ interface OrderServiceAsync {
 
         /** @see delete */
         @MustBeClosed
-        suspend fun delete(
+        fun delete(
             params: OrderDeleteParams,
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponse
 
         /** @see delete */
         @MustBeClosed
-        suspend fun delete(orderId: Long, requestOptions: RequestOptions): HttpResponse =
+        fun delete(orderId: Long, requestOptions: RequestOptions): HttpResponse =
             delete(orderId, OrderDeleteParams.none(), requestOptions)
     }
 }

@@ -4,7 +4,7 @@ package com.jd_project.api.client
 
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.services.blocking.PetService
-import com.jd_project.api.services.blocking.St000reService
+import com.jd_project.api.services.blocking.St00000reService
 import com.jd_project.api.services.blocking.UserService
 
 /**
@@ -45,7 +45,7 @@ interface JdProjectClient {
 
     fun pets(): PetService
 
-    fun st000re(): St000reService
+    fun st00000re(): St00000reService
 
     fun users(): UserService
 
@@ -74,7 +74,7 @@ interface JdProjectClient {
 
         fun pets(): PetService.WithRawResponse
 
-        fun st000re(): St000reService.WithRawResponse
+        fun st00000re(): St00000reService.WithRawResponse
 
         fun users(): UserService.WithRawResponse
     }

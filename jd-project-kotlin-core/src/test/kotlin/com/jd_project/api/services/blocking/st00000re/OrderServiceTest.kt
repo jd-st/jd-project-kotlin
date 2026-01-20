@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.async.st000re
+package com.jd_project.api.services.blocking.st00000re
 
 import com.jd_project.api.TestServerExtension
-import com.jd_project.api.client.okhttp.JdProjectOkHttpClientAsync
+import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
 import java.time.OffsetDateTime
 import org.junit.jupiter.api.Disabled
@@ -11,20 +11,20 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(TestServerExtension::class)
-internal class OrderServiceAsyncTest {
+internal class OrderServiceTest {
 
     @Disabled("Prism tests are disabled")
     @Test
-    suspend fun create() {
+    fun create() {
         val client =
-            JdProjectOkHttpClientAsync.builder()
+            JdProjectOkHttpClient.builder()
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st000re().orders()
+        val orderService = client.st00000re().orders()
 
         val order =
-            orderServiceAsync.create(
+            orderService.create(
                 Order.builder()
                     .id(10L)
                     .complete(true)
@@ -40,29 +40,29 @@ internal class OrderServiceAsyncTest {
 
     @Disabled("Prism tests are disabled")
     @Test
-    suspend fun retrieve() {
+    fun retrieve() {
         val client =
-            JdProjectOkHttpClientAsync.builder()
+            JdProjectOkHttpClient.builder()
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st000re().orders()
+        val orderService = client.st00000re().orders()
 
-        val order = orderServiceAsync.retrieve(0L)
+        val order = orderService.retrieve(0L)
 
         order.validate()
     }
 
     @Disabled("Prism tests are disabled")
     @Test
-    suspend fun delete() {
+    fun delete() {
         val client =
-            JdProjectOkHttpClientAsync.builder()
+            JdProjectOkHttpClient.builder()
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st000re().orders()
+        val orderService = client.st00000re().orders()
 
-        orderServiceAsync.delete(0L)
+        orderService.delete(0L)
     }
 }

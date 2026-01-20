@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.blocking.st000re
+package com.jd_project.api.services.blocking.st00000re
 
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.core.RequestOptions
@@ -18,9 +18,9 @@ import com.jd_project.api.core.http.json
 import com.jd_project.api.core.http.parseable
 import com.jd_project.api.core.prepare
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
-import com.jd_project.api.models.st000re.orders.OrderDeleteParams
-import com.jd_project.api.models.st000re.orders.OrderRetrieveParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderDeleteParams
+import com.jd_project.api.models.st00000re.orders.OrderRetrieveParams
 
 class OrderServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     OrderService {
@@ -35,15 +35,15 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
         OrderServiceImpl(clientOptions.toBuilder().apply(modifier).build())
 
     override fun create(params: OrderCreateParams, requestOptions: RequestOptions): Order =
-        // post /st000re/order
+        // post /st00000re/order
         withRawResponse().create(params, requestOptions).parse()
 
     override fun retrieve(params: OrderRetrieveParams, requestOptions: RequestOptions): Order =
-        // get /st000re/order/{orderId}
+        // get /st00000re/order/{orderId}
         withRawResponse().retrieve(params, requestOptions).parse()
 
     override fun delete(params: OrderDeleteParams, requestOptions: RequestOptions) {
-        // delete /st000re/order/{orderId}
+        // delete /st00000re/order/{orderId}
         withRawResponse().delete(params, requestOptions)
     }
 
@@ -68,7 +68,7 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.POST)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st000re", "order")
+                    .addPathSegments("st00000re", "order")
                     .apply { params._body()?.let { body(json(clientOptions.jsonMapper, it)) } }
                     .build()
                     .prepare(clientOptions, params)
@@ -98,7 +98,7 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.GET)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st000re", "order", params._pathParam(0))
+                    .addPathSegments("st00000re", "order", params._pathParam(0))
                     .build()
                     .prepare(clientOptions, params)
             val requestOptions = requestOptions.applyDefaults(RequestOptions.from(clientOptions))
@@ -127,7 +127,7 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.DELETE)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st000re", "order", params._pathParam(0))
+                    .addPathSegments("st00000re", "order", params._pathParam(0))
                     .apply { params._body()?.let { body(json(clientOptions.jsonMapper, it)) } }
                     .build()
                     .prepare(clientOptions, params)

@@ -6,11 +6,11 @@ import com.google.errorprone.annotations.MustBeClosed
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.core.RequestOptions
 import com.jd_project.api.core.http.HttpResponseFor
-import com.jd_project.api.models.st000re.St000reListInventoryParams
-import com.jd_project.api.models.st000re.St000reListInventoryResponse
-import com.jd_project.api.services.blocking.st000re.OrderService
+import com.jd_project.api.models.st00000re.St00000reListInventoryParams
+import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
+import com.jd_project.api.services.blocking.st00000re.OrderService
 
-interface St000reService {
+interface St00000reService {
 
     /**
      * Returns a view of this service that provides access to raw HTTP responses for each method.
@@ -22,21 +22,21 @@ interface St000reService {
      *
      * The original service is not modified.
      */
-    fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St000reService
+    fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reService
 
     fun orders(): OrderService
 
     /** Returns a map of status codes to quantities */
     fun listInventory(
-        params: St000reListInventoryParams = St000reListInventoryParams.none(),
+        params: St00000reListInventoryParams = St00000reListInventoryParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
-    ): St000reListInventoryResponse
+    ): St00000reListInventoryResponse
 
     /** @see listInventory */
-    fun listInventory(requestOptions: RequestOptions): St000reListInventoryResponse =
-        listInventory(St000reListInventoryParams.none(), requestOptions)
+    fun listInventory(requestOptions: RequestOptions): St00000reListInventoryResponse =
+        listInventory(St00000reListInventoryParams.none(), requestOptions)
 
-    /** A view of [St000reService] that provides access to raw HTTP responses for each method. */
+    /** A view of [St00000reService] that provides access to raw HTTP responses for each method. */
     interface WithRawResponse {
 
         /**
@@ -44,25 +44,25 @@ interface St000reService {
          *
          * The original service is not modified.
          */
-        fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St000reService.WithRawResponse
+        fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reService.WithRawResponse
 
         fun orders(): OrderService.WithRawResponse
 
         /**
-         * Returns a raw HTTP response for `get /st000re/inventory`, but is otherwise the same as
-         * [St000reService.listInventory].
+         * Returns a raw HTTP response for `get /st00000re/inventory`, but is otherwise the same as
+         * [St00000reService.listInventory].
          */
         @MustBeClosed
         fun listInventory(
-            params: St000reListInventoryParams = St000reListInventoryParams.none(),
+            params: St00000reListInventoryParams = St00000reListInventoryParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
-        ): HttpResponseFor<St000reListInventoryResponse>
+        ): HttpResponseFor<St00000reListInventoryResponse>
 
         /** @see listInventory */
         @MustBeClosed
         fun listInventory(
             requestOptions: RequestOptions
-        ): HttpResponseFor<St000reListInventoryResponse> =
-            listInventory(St000reListInventoryParams.none(), requestOptions)
+        ): HttpResponseFor<St00000reListInventoryResponse> =
+            listInventory(St00000reListInventoryParams.none(), requestOptions)
     }
 }

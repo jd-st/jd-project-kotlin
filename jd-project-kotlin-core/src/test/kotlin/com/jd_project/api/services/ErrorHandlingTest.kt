@@ -58,8 +58,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory400() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory400() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -67,7 +67,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<BadRequestException> { st000reService.listInventory() }
+        val e = assertThrows<BadRequestException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(400)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -75,8 +75,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory400WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory400WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -84,7 +84,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<BadRequestException> { st000reService.listInventory() }
+        val e = assertThrows<BadRequestException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(400)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -92,8 +92,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory401() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory401() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -101,7 +101,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnauthorizedException> { st000reService.listInventory() }
+        val e = assertThrows<UnauthorizedException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(401)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -109,8 +109,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory401WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory401WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -118,7 +118,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnauthorizedException> { st000reService.listInventory() }
+        val e = assertThrows<UnauthorizedException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(401)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -126,8 +126,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory403() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory403() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -135,7 +135,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<PermissionDeniedException> { st000reService.listInventory() }
+        val e = assertThrows<PermissionDeniedException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(403)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -143,8 +143,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory403WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory403WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -152,7 +152,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<PermissionDeniedException> { st000reService.listInventory() }
+        val e = assertThrows<PermissionDeniedException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(403)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -160,8 +160,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory404() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory404() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -169,7 +169,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<NotFoundException> { st000reService.listInventory() }
+        val e = assertThrows<NotFoundException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(404)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -177,8 +177,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory404WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory404WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -186,7 +186,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<NotFoundException> { st000reService.listInventory() }
+        val e = assertThrows<NotFoundException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(404)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -194,8 +194,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory422() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory422() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -203,7 +203,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnprocessableEntityException> { st000reService.listInventory() }
+        val e = assertThrows<UnprocessableEntityException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(422)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -211,8 +211,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory422WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory422WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -220,7 +220,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnprocessableEntityException> { st000reService.listInventory() }
+        val e = assertThrows<UnprocessableEntityException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(422)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -228,8 +228,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory429() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory429() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -237,7 +237,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<RateLimitException> { st000reService.listInventory() }
+        val e = assertThrows<RateLimitException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(429)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -245,8 +245,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory429WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory429WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -254,7 +254,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<RateLimitException> { st000reService.listInventory() }
+        val e = assertThrows<RateLimitException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(429)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -262,8 +262,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory500() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory500() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -271,7 +271,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<InternalServerException> { st000reService.listInventory() }
+        val e = assertThrows<InternalServerException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(500)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -279,8 +279,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory500WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory500WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -288,7 +288,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<InternalServerException> { st000reService.listInventory() }
+        val e = assertThrows<InternalServerException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(500)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -296,8 +296,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory999() {
-        val st000reService = client.st000re()
+    fun st00000reListInventory999() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -305,7 +305,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnexpectedStatusCodeException> { st000reService.listInventory() }
+        val e = assertThrows<UnexpectedStatusCodeException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(999)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -313,8 +313,8 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventory999WithRawResponse() {
-        val st000reService = client.st000re().withRawResponse()
+    fun st00000reListInventory999WithRawResponse() {
+        val st00000reService = client.st00000re().withRawResponse()
         stubFor(
             get(anyUrl())
                 .willReturn(
@@ -322,7 +322,7 @@ internal class ErrorHandlingTest {
                 )
         )
 
-        val e = assertThrows<UnexpectedStatusCodeException> { st000reService.listInventory() }
+        val e = assertThrows<UnexpectedStatusCodeException> { st00000reService.listInventory() }
 
         assertThat(e.statusCode()).isEqualTo(999)
         assertThat(e.headers().toMap()).contains(entry(HEADER_NAME, listOf(HEADER_VALUE)))
@@ -330,14 +330,14 @@ internal class ErrorHandlingTest {
     }
 
     @Test
-    fun st000reListInventoryInvalidJsonBody() {
-        val st000reService = client.st000re()
+    fun st00000reListInventoryInvalidJsonBody() {
+        val st00000reService = client.st00000re()
         stubFor(
             get(anyUrl())
                 .willReturn(status(200).withHeader(HEADER_NAME, HEADER_VALUE).withBody(NOT_JSON))
         )
 
-        val e = assertThrows<JdProjectException> { st000reService.listInventory() }
+        val e = assertThrows<JdProjectException> { st00000reService.listInventory() }
 
         assertThat(e).hasMessage("Error reading response")
     }
