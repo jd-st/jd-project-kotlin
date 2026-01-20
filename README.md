@@ -51,13 +51,13 @@ This library requires Java 8 or later.
 import com.jd_project.api.client.JdProjectClient
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 // Configures using the `jdproject.petstoreApiKey` and `jdproject.baseUrl` system properties
 // Or configures using the `PETSTORE_API_KEY` and `JD_PROJECT_BASE_URL` environment variables
 val client: JdProjectClient = JdProjectOkHttpClient.fromEnv()
 
-val order: Order = client.st000re().orders().create()
+val order: Order = client.st00000re().orders().create()
 ```
 
 ## Client configuration
@@ -130,7 +130,7 @@ The `withOptions()` method does not affect the original client or service.
 
 To send a request to the Jd Project API, build an instance of some `Params` class and pass it to the corresponding client method. When the response is received, it will be deserialized into an instance of a Kotlin class.
 
-For example, `client.st000re().orders().create(...)` should be called with an instance of `OrderCreateParams`, and it will return an instance of `Order`.
+For example, `client.st00000re().orders().create(...)` should be called with an instance of `OrderCreateParams`, and it will return an instance of `Order`.
 
 ## Immutability
 
@@ -148,13 +148,13 @@ The default client is synchronous. To switch to asynchronous execution, call the
 import com.jd_project.api.client.JdProjectClient
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 // Configures using the `jdproject.petstoreApiKey` and `jdproject.baseUrl` system properties
 // Or configures using the `PETSTORE_API_KEY` and `JD_PROJECT_BASE_URL` environment variables
 val client: JdProjectClient = JdProjectOkHttpClient.fromEnv()
 
-val order: Order = client.async().st000re().orders().create()
+val order: Order = client.async().st00000re().orders().create()
 ```
 
 Or create an asynchronous client from the beginning:
@@ -163,13 +163,13 @@ Or create an asynchronous client from the beginning:
 import com.jd_project.api.client.JdProjectClientAsync
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClientAsync
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 // Configures using the `jdproject.petstoreApiKey` and `jdproject.baseUrl` system properties
 // Or configures using the `PETSTORE_API_KEY` and `JD_PROJECT_BASE_URL` environment variables
 val client: JdProjectClientAsync = JdProjectOkHttpClientAsync.fromEnv()
 
-val order: Order = client.st000re().orders().create()
+val order: Order = client.st00000re().orders().create()
 ```
 
 The asynchronous client supports the same options as the synchronous one, except most methods are [suspending](https://kotlinlang.org/docs/coroutines-guide.html).
@@ -183,10 +183,10 @@ To access this data, prefix any HTTP method call on a client or service with `wi
 ```kotlin
 import com.jd_project.api.core.http.Headers
 import com.jd_project.api.core.http.HttpResponseFor
-import com.jd_project.api.models.st000re.St000reListInventoryParams
-import com.jd_project.api.models.st000re.St000reListInventoryResponse
+import com.jd_project.api.models.st00000re.St00000reListInventoryParams
+import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 
-val response: HttpResponseFor<St000reListInventoryResponse> = client.st000re().withRawResponse().listInventory()
+val response: HttpResponseFor<St00000reListInventoryResponse> = client.st00000re().withRawResponse().listInventory()
 
 val statusCode: Int = response.statusCode()
 val headers: Headers = response.headers()
@@ -195,9 +195,9 @@ val headers: Headers = response.headers()
 You can still deserialize the response into an instance of a Kotlin class if needed:
 
 ```kotlin
-import com.jd_project.api.models.st000re.St000reListInventoryResponse
+import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 
-val parsedResponse: St000reListInventoryResponse = response.parse()
+val parsedResponse: St00000reListInventoryResponse = response.parse()
 ```
 
 ## Error handling
@@ -295,9 +295,9 @@ Requests time out after 1 minute by default.
 To set a custom timeout, configure the method call using the `timeout` method:
 
 ```kotlin
-import com.jd_project.api.models.st000re.St000reListInventoryResponse
+import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 
-val response: St000reListInventoryResponse = client.st000re().listInventory(RequestOptions.builder().timeout(Duration.ofSeconds(30)).build())
+val response: St00000reListInventoryResponse = client.st00000re().listInventory(RequestOptions.builder().timeout(Duration.ofSeconds(30)).build())
 ```
 
 Or configure the default for all method calls at the client level:
@@ -400,7 +400,7 @@ To set undocumented parameters, call the `putAdditionalHeader`, `putAdditionalQu
 
 ```kotlin
 import com.jd_project.api.core.JsonValue
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 val params: OrderCreateParams = OrderCreateParams.builder()
     .putAdditionalHeader("Secret-Header", "42")
@@ -414,7 +414,7 @@ These can be accessed on the built object later using the `_additionalHeaders()`
 To set a documented parameter or property to an undocumented or not yet supported _value_, pass a [`JsonValue`](jd-project-kotlin-core/src/main/kotlin/com/jd_project/api/core/Values.kt) object to its setter:
 
 ```kotlin
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 val params: OrderCreateParams = OrderCreateParams.builder().build()
 ```
@@ -462,7 +462,7 @@ To forcibly omit a required parameter or property, pass [`JsonMissing`](jd-proje
 import com.jd_project.api.core.JsonMissing
 import com.jd_project.api.models.pets.Pet
 import com.jd_project.api.models.pets.PetCreateParams
-import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 val params: OrderCreateParams = PetCreateParams.builder()
     .pet(Pet.builder()
@@ -483,7 +483,7 @@ import com.jd_project.api.core.JsonNull
 import com.jd_project.api.core.JsonNumber
 import com.jd_project.api.core.JsonValue
 
-val additionalProperties: Map<String, JsonValue> = client.st000re().orders().create(params)._additionalProperties()
+val additionalProperties: Map<String, JsonValue> = client.st00000re().orders().create(params)._additionalProperties()
 val secretPropertyValue: JsonValue = additionalProperties.get("secretProperty")
 
 val result = when (secretPropertyValue) {
@@ -500,7 +500,7 @@ To access a property's raw JSON value, which may be undocumented, call its `_` p
 ```kotlin
 import com.jd_project.api.core.JsonField
 
-val field: JsonField<Any> = client.st000re().orders().create(params)._field()
+val field: JsonField<Any> = client.st00000re().orders().create(params)._field()
 
 if (field.isMissing()) {
   // The property is absent from the JSON response
@@ -527,7 +527,7 @@ If you would prefer to check that the response is completely well-typed upfront,
 ```kotlin
 import com.jd_project.api.models.Order
 
-val order: Order = client.st000re().orders().create(params).validate()
+val order: Order = client.st00000re().orders().create(params).validate()
 ```
 
 Or configure the method call to validate the response using the `responseValidation` method:
@@ -535,7 +535,7 @@ Or configure the method call to validate the response using the `responseValidat
 ```kotlin
 import com.jd_project.api.models.Order
 
-val order: Order = client.st000re().orders().create(RequestOptions.builder().responseValidation(true).build())
+val order: Order = client.st00000re().orders().create(RequestOptions.builder().responseValidation(true).build())
 ```
 
 Or configure the default for all method calls at the client level:

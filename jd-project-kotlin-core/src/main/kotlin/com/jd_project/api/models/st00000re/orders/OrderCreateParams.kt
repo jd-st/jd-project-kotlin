@@ -1,30 +1,27 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.models.st000re.orders
+package com.jd_project.api.models.st00000re.orders
 
 import com.jd_project.api.core.JsonValue
 import com.jd_project.api.core.Params
 import com.jd_project.api.core.http.Headers
 import com.jd_project.api.core.http.QueryParams
-import com.jd_project.api.core.toImmutable
+import com.jd_project.api.core.immutableEmptyMap
+import com.jd_project.api.models.Order
 import java.util.Objects
 
-/**
- * For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will
- * generate API errors
- */
-class OrderDeleteParams
+/** Place a new order in the store */
+class OrderCreateParams
 private constructor(
-    private val orderId: Long?,
+    private val order: Order?,
     private val additionalHeaders: Headers,
     private val additionalQueryParams: QueryParams,
-    private val additionalBodyProperties: Map<String, JsonValue>,
 ) : Params {
 
-    fun orderId(): Long? = orderId
+    fun order(): Order? = order
 
-    /** Additional body properties to send with the request. */
-    fun _additionalBodyProperties(): Map<String, JsonValue> = additionalBodyProperties
+    fun _additionalBodyProperties(): Map<String, JsonValue> =
+        order?._additionalProperties() ?: immutableEmptyMap()
 
     /** Additional headers to send with the request. */
     fun _additionalHeaders(): Headers = additionalHeaders
@@ -36,35 +33,26 @@ private constructor(
 
     companion object {
 
-        fun none(): OrderDeleteParams = builder().build()
+        fun none(): OrderCreateParams = builder().build()
 
-        /** Returns a mutable builder for constructing an instance of [OrderDeleteParams]. */
+        /** Returns a mutable builder for constructing an instance of [OrderCreateParams]. */
         fun builder() = Builder()
     }
 
-    /** A builder for [OrderDeleteParams]. */
+    /** A builder for [OrderCreateParams]. */
     class Builder internal constructor() {
 
-        private var orderId: Long? = null
+        private var order: Order? = null
         private var additionalHeaders: Headers.Builder = Headers.builder()
         private var additionalQueryParams: QueryParams.Builder = QueryParams.builder()
-        private var additionalBodyProperties: MutableMap<String, JsonValue> = mutableMapOf()
 
-        internal fun from(orderDeleteParams: OrderDeleteParams) = apply {
-            orderId = orderDeleteParams.orderId
-            additionalHeaders = orderDeleteParams.additionalHeaders.toBuilder()
-            additionalQueryParams = orderDeleteParams.additionalQueryParams.toBuilder()
-            additionalBodyProperties = orderDeleteParams.additionalBodyProperties.toMutableMap()
+        internal fun from(orderCreateParams: OrderCreateParams) = apply {
+            order = orderCreateParams.order
+            additionalHeaders = orderCreateParams.additionalHeaders.toBuilder()
+            additionalQueryParams = orderCreateParams.additionalQueryParams.toBuilder()
         }
 
-        fun orderId(orderId: Long?) = apply { this.orderId = orderId }
-
-        /**
-         * Alias for [Builder.orderId].
-         *
-         * This unboxed primitive overload exists for backwards compatibility.
-         */
-        fun orderId(orderId: Long) = orderId(orderId as Long?)
+        fun order(order: Order?) = apply { this.order = order }
 
         fun additionalHeaders(additionalHeaders: Headers) = apply {
             this.additionalHeaders.clear()
@@ -164,49 +152,16 @@ private constructor(
             additionalQueryParams.removeAll(keys)
         }
 
-        fun additionalBodyProperties(additionalBodyProperties: Map<String, JsonValue>) = apply {
-            this.additionalBodyProperties.clear()
-            putAllAdditionalBodyProperties(additionalBodyProperties)
-        }
-
-        fun putAdditionalBodyProperty(key: String, value: JsonValue) = apply {
-            additionalBodyProperties.put(key, value)
-        }
-
-        fun putAllAdditionalBodyProperties(additionalBodyProperties: Map<String, JsonValue>) =
-            apply {
-                this.additionalBodyProperties.putAll(additionalBodyProperties)
-            }
-
-        fun removeAdditionalBodyProperty(key: String) = apply {
-            additionalBodyProperties.remove(key)
-        }
-
-        fun removeAllAdditionalBodyProperties(keys: Set<String>) = apply {
-            keys.forEach(::removeAdditionalBodyProperty)
-        }
-
         /**
-         * Returns an immutable instance of [OrderDeleteParams].
+         * Returns an immutable instance of [OrderCreateParams].
          *
          * Further updates to this [Builder] will not mutate the returned instance.
          */
-        fun build(): OrderDeleteParams =
-            OrderDeleteParams(
-                orderId,
-                additionalHeaders.build(),
-                additionalQueryParams.build(),
-                additionalBodyProperties.toImmutable(),
-            )
+        fun build(): OrderCreateParams =
+            OrderCreateParams(order, additionalHeaders.build(), additionalQueryParams.build())
     }
 
-    fun _body(): Map<String, JsonValue>? = additionalBodyProperties.ifEmpty { null }
-
-    fun _pathParam(index: Int): String =
-        when (index) {
-            0 -> orderId?.toString() ?: ""
-            else -> ""
-        }
+    fun _body(): Order? = order
 
     override fun _headers(): Headers = additionalHeaders
 
@@ -217,16 +172,14 @@ private constructor(
             return true
         }
 
-        return other is OrderDeleteParams &&
-            orderId == other.orderId &&
+        return other is OrderCreateParams &&
+            order == other.order &&
             additionalHeaders == other.additionalHeaders &&
-            additionalQueryParams == other.additionalQueryParams &&
-            additionalBodyProperties == other.additionalBodyProperties
+            additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int =
-        Objects.hash(orderId, additionalHeaders, additionalQueryParams, additionalBodyProperties)
+    override fun hashCode(): Int = Objects.hash(order, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
-        "OrderDeleteParams{orderId=$orderId, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams, additionalBodyProperties=$additionalBodyProperties}"
+        "OrderCreateParams{order=$order, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
 }

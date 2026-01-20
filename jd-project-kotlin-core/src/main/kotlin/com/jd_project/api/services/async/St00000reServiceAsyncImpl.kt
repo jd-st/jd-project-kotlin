@@ -14,36 +14,36 @@ import com.jd_project.api.core.http.HttpResponse.Handler
 import com.jd_project.api.core.http.HttpResponseFor
 import com.jd_project.api.core.http.parseable
 import com.jd_project.api.core.prepareAsync
-import com.jd_project.api.models.st000re.St000reListInventoryParams
-import com.jd_project.api.models.st000re.St000reListInventoryResponse
-import com.jd_project.api.services.async.st000re.OrderServiceAsync
-import com.jd_project.api.services.async.st000re.OrderServiceAsyncImpl
+import com.jd_project.api.models.st00000re.St00000reListInventoryParams
+import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
+import com.jd_project.api.services.async.st00000re.OrderServiceAsync
+import com.jd_project.api.services.async.st00000re.OrderServiceAsyncImpl
 
-class St000reServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
-    St000reServiceAsync {
+class St00000reServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
+    St00000reServiceAsync {
 
-    private val withRawResponse: St000reServiceAsync.WithRawResponse by lazy {
+    private val withRawResponse: St00000reServiceAsync.WithRawResponse by lazy {
         WithRawResponseImpl(clientOptions)
     }
 
     private val orders: OrderServiceAsync by lazy { OrderServiceAsyncImpl(clientOptions) }
 
-    override fun withRawResponse(): St000reServiceAsync.WithRawResponse = withRawResponse
+    override fun withRawResponse(): St00000reServiceAsync.WithRawResponse = withRawResponse
 
-    override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St000reServiceAsync =
-        St000reServiceAsyncImpl(clientOptions.toBuilder().apply(modifier).build())
+    override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reServiceAsync =
+        St00000reServiceAsyncImpl(clientOptions.toBuilder().apply(modifier).build())
 
     override fun orders(): OrderServiceAsync = orders
 
     override suspend fun listInventory(
-        params: St000reListInventoryParams,
+        params: St00000reListInventoryParams,
         requestOptions: RequestOptions,
-    ): St000reListInventoryResponse =
-        // get /st000re/inventory
+    ): St00000reListInventoryResponse =
+        // get /st00000re/inventory
         withRawResponse().listInventory(params, requestOptions).parse()
 
     class WithRawResponseImpl internal constructor(private val clientOptions: ClientOptions) :
-        St000reServiceAsync.WithRawResponse {
+        St00000reServiceAsync.WithRawResponse {
 
         private val errorHandler: Handler<HttpResponse> =
             errorHandler(errorBodyHandler(clientOptions.jsonMapper))
@@ -54,25 +54,25 @@ class St000reServiceAsyncImpl internal constructor(private val clientOptions: Cl
 
         override fun withOptions(
             modifier: (ClientOptions.Builder) -> Unit
-        ): St000reServiceAsync.WithRawResponse =
-            St000reServiceAsyncImpl.WithRawResponseImpl(
+        ): St00000reServiceAsync.WithRawResponse =
+            St00000reServiceAsyncImpl.WithRawResponseImpl(
                 clientOptions.toBuilder().apply(modifier).build()
             )
 
         override fun orders(): OrderServiceAsync.WithRawResponse = orders
 
-        private val listInventoryHandler: Handler<St000reListInventoryResponse> =
-            jsonHandler<St000reListInventoryResponse>(clientOptions.jsonMapper)
+        private val listInventoryHandler: Handler<St00000reListInventoryResponse> =
+            jsonHandler<St00000reListInventoryResponse>(clientOptions.jsonMapper)
 
         override suspend fun listInventory(
-            params: St000reListInventoryParams,
+            params: St00000reListInventoryParams,
             requestOptions: RequestOptions,
-        ): HttpResponseFor<St000reListInventoryResponse> {
+        ): HttpResponseFor<St00000reListInventoryResponse> {
             val request =
                 HttpRequest.builder()
                     .method(HttpMethod.GET)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st000re", "inventory")
+                    .addPathSegments("st00000re", "inventory")
                     .build()
                     .prepareAsync(clientOptions, params)
             val requestOptions = requestOptions.applyDefaults(RequestOptions.from(clientOptions))
