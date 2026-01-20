@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.blocking.st0re
+package com.jd_project.api.services.blocking.st000re
 
 import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
@@ -21,7 +21,7 @@ internal class OrderServiceTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderService = client.st0re().orders()
+        val orderService = client.st000re().orders()
 
         val order =
             orderService.create(
@@ -46,7 +46,7 @@ internal class OrderServiceTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderService = client.st0re().orders()
+        val orderService = client.st000re().orders()
 
         val order = orderService.retrieve(0L)
 
@@ -61,7 +61,7 @@ internal class OrderServiceTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderService = client.st0re().orders()
+        val orderService = client.st000re().orders()
 
         orderService.delete(0L)
     }

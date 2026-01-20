@@ -1,27 +1,27 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.async
+package com.jd_project.api.services.blocking
 
 import com.jd_project.api.TestServerExtension
-import com.jd_project.api.client.okhttp.JdProjectOkHttpClientAsync
+import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(TestServerExtension::class)
-internal class St0reServiceAsyncTest {
+internal class St000reServiceTest {
 
     @Disabled("Prism tests are disabled")
     @Test
-    suspend fun listInventory() {
+    fun listInventory() {
         val client =
-            JdProjectOkHttpClientAsync.builder()
+            JdProjectOkHttpClient.builder()
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val st0reServiceAsync = client.st0re()
+        val st000reService = client.st000re()
 
-        val response = st0reServiceAsync.listInventory()
+        val response = st000reService.listInventory()
 
         response.validate()
     }
