@@ -1,18 +1,27 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.models.st0re
+package com.jd_project.api.models.st000re.orders
 
+import com.jd_project.api.core.JsonValue
 import com.jd_project.api.core.Params
 import com.jd_project.api.core.http.Headers
 import com.jd_project.api.core.http.QueryParams
+import com.jd_project.api.core.immutableEmptyMap
+import com.jd_project.api.models.Order
 import java.util.Objects
 
-/** Returns a map of status codes to quantities */
-class St0reListInventoryParams
+/** Place a new order in the store */
+class OrderCreateParams
 private constructor(
+    private val order: Order?,
     private val additionalHeaders: Headers,
     private val additionalQueryParams: QueryParams,
 ) : Params {
+
+    fun order(): Order? = order
+
+    fun _additionalBodyProperties(): Map<String, JsonValue> =
+        order?._additionalProperties() ?: immutableEmptyMap()
 
     /** Additional headers to send with the request. */
     fun _additionalHeaders(): Headers = additionalHeaders
@@ -24,22 +33,26 @@ private constructor(
 
     companion object {
 
-        fun none(): St0reListInventoryParams = builder().build()
+        fun none(): OrderCreateParams = builder().build()
 
-        /** Returns a mutable builder for constructing an instance of [St0reListInventoryParams]. */
+        /** Returns a mutable builder for constructing an instance of [OrderCreateParams]. */
         fun builder() = Builder()
     }
 
-    /** A builder for [St0reListInventoryParams]. */
+    /** A builder for [OrderCreateParams]. */
     class Builder internal constructor() {
 
+        private var order: Order? = null
         private var additionalHeaders: Headers.Builder = Headers.builder()
         private var additionalQueryParams: QueryParams.Builder = QueryParams.builder()
 
-        internal fun from(st0reListInventoryParams: St0reListInventoryParams) = apply {
-            additionalHeaders = st0reListInventoryParams.additionalHeaders.toBuilder()
-            additionalQueryParams = st0reListInventoryParams.additionalQueryParams.toBuilder()
+        internal fun from(orderCreateParams: OrderCreateParams) = apply {
+            order = orderCreateParams.order
+            additionalHeaders = orderCreateParams.additionalHeaders.toBuilder()
+            additionalQueryParams = orderCreateParams.additionalQueryParams.toBuilder()
         }
+
+        fun order(order: Order?) = apply { this.order = order }
 
         fun additionalHeaders(additionalHeaders: Headers) = apply {
             this.additionalHeaders.clear()
@@ -140,13 +153,15 @@ private constructor(
         }
 
         /**
-         * Returns an immutable instance of [St0reListInventoryParams].
+         * Returns an immutable instance of [OrderCreateParams].
          *
          * Further updates to this [Builder] will not mutate the returned instance.
          */
-        fun build(): St0reListInventoryParams =
-            St0reListInventoryParams(additionalHeaders.build(), additionalQueryParams.build())
+        fun build(): OrderCreateParams =
+            OrderCreateParams(order, additionalHeaders.build(), additionalQueryParams.build())
     }
+
+    fun _body(): Order? = order
 
     override fun _headers(): Headers = additionalHeaders
 
@@ -157,13 +172,14 @@ private constructor(
             return true
         }
 
-        return other is St0reListInventoryParams &&
+        return other is OrderCreateParams &&
+            order == other.order &&
             additionalHeaders == other.additionalHeaders &&
             additionalQueryParams == other.additionalQueryParams
     }
 
-    override fun hashCode(): Int = Objects.hash(additionalHeaders, additionalQueryParams)
+    override fun hashCode(): Int = Objects.hash(order, additionalHeaders, additionalQueryParams)
 
     override fun toString() =
-        "St0reListInventoryParams{additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
+        "OrderCreateParams{order=$order, additionalHeaders=$additionalHeaders, additionalQueryParams=$additionalQueryParams}"
 }

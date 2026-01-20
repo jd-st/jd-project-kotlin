@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.blocking.st0re
+package com.jd_project.api.services.async.st000re
 
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.core.RequestOptions
@@ -16,51 +16,56 @@ import com.jd_project.api.core.http.HttpResponse.Handler
 import com.jd_project.api.core.http.HttpResponseFor
 import com.jd_project.api.core.http.json
 import com.jd_project.api.core.http.parseable
-import com.jd_project.api.core.prepare
+import com.jd_project.api.core.prepareAsync
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st0re.orders.OrderCreateParams
-import com.jd_project.api.models.st0re.orders.OrderDeleteParams
-import com.jd_project.api.models.st0re.orders.OrderRetrieveParams
+import com.jd_project.api.models.st000re.orders.OrderCreateParams
+import com.jd_project.api.models.st000re.orders.OrderDeleteParams
+import com.jd_project.api.models.st000re.orders.OrderRetrieveParams
 
-class OrderServiceImpl internal constructor(private val clientOptions: ClientOptions) :
-    OrderService {
+class OrderServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
+    OrderServiceAsync {
 
-    private val withRawResponse: OrderService.WithRawResponse by lazy {
+    private val withRawResponse: OrderServiceAsync.WithRawResponse by lazy {
         WithRawResponseImpl(clientOptions)
     }
 
-    override fun withRawResponse(): OrderService.WithRawResponse = withRawResponse
+    override fun withRawResponse(): OrderServiceAsync.WithRawResponse = withRawResponse
 
-    override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): OrderService =
-        OrderServiceImpl(clientOptions.toBuilder().apply(modifier).build())
+    override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): OrderServiceAsync =
+        OrderServiceAsyncImpl(clientOptions.toBuilder().apply(modifier).build())
 
-    override fun create(params: OrderCreateParams, requestOptions: RequestOptions): Order =
-        // post /st0re/order
+    override suspend fun create(params: OrderCreateParams, requestOptions: RequestOptions): Order =
+        // post /st000re/order
         withRawResponse().create(params, requestOptions).parse()
 
-    override fun retrieve(params: OrderRetrieveParams, requestOptions: RequestOptions): Order =
-        // get /st0re/order/{orderId}
+    override suspend fun retrieve(
+        params: OrderRetrieveParams,
+        requestOptions: RequestOptions,
+    ): Order =
+        // get /st000re/order/{orderId}
         withRawResponse().retrieve(params, requestOptions).parse()
 
-    override fun delete(params: OrderDeleteParams, requestOptions: RequestOptions) {
-        // delete /st0re/order/{orderId}
+    override suspend fun delete(params: OrderDeleteParams, requestOptions: RequestOptions) {
+        // delete /st000re/order/{orderId}
         withRawResponse().delete(params, requestOptions)
     }
 
     class WithRawResponseImpl internal constructor(private val clientOptions: ClientOptions) :
-        OrderService.WithRawResponse {
+        OrderServiceAsync.WithRawResponse {
 
         private val errorHandler: Handler<HttpResponse> =
             errorHandler(errorBodyHandler(clientOptions.jsonMapper))
 
         override fun withOptions(
             modifier: (ClientOptions.Builder) -> Unit
-        ): OrderService.WithRawResponse =
-            OrderServiceImpl.WithRawResponseImpl(clientOptions.toBuilder().apply(modifier).build())
+        ): OrderServiceAsync.WithRawResponse =
+            OrderServiceAsyncImpl.WithRawResponseImpl(
+                clientOptions.toBuilder().apply(modifier).build()
+            )
 
         private val createHandler: Handler<Order> = jsonHandler<Order>(clientOptions.jsonMapper)
 
-        override fun create(
+        override suspend fun create(
             params: OrderCreateParams,
             requestOptions: RequestOptions,
         ): HttpResponseFor<Order> {
@@ -68,12 +73,12 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.POST)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st0re", "order")
+                    .addPathSegments("st000re", "order")
                     .apply { params._body()?.let { body(json(clientOptions.jsonMapper, it)) } }
                     .build()
-                    .prepare(clientOptions, params)
+                    .prepareAsync(clientOptions, params)
             val requestOptions = requestOptions.applyDefaults(RequestOptions.from(clientOptions))
-            val response = clientOptions.httpClient.execute(request, requestOptions)
+            val response = clientOptions.httpClient.executeAsync(request, requestOptions)
             return errorHandler.handle(response).parseable {
                 response
                     .use { createHandler.handle(it) }
@@ -87,7 +92,7 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
 
         private val retrieveHandler: Handler<Order> = jsonHandler<Order>(clientOptions.jsonMapper)
 
-        override fun retrieve(
+        override suspend fun retrieve(
             params: OrderRetrieveParams,
             requestOptions: RequestOptions,
         ): HttpResponseFor<Order> {
@@ -98,11 +103,11 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.GET)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st0re", "order", params._pathParam(0))
+                    .addPathSegments("st000re", "order", params._pathParam(0))
                     .build()
-                    .prepare(clientOptions, params)
+                    .prepareAsync(clientOptions, params)
             val requestOptions = requestOptions.applyDefaults(RequestOptions.from(clientOptions))
-            val response = clientOptions.httpClient.execute(request, requestOptions)
+            val response = clientOptions.httpClient.executeAsync(request, requestOptions)
             return errorHandler.handle(response).parseable {
                 response
                     .use { retrieveHandler.handle(it) }
@@ -116,7 +121,7 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
 
         private val deleteHandler: Handler<Void?> = emptyHandler()
 
-        override fun delete(
+        override suspend fun delete(
             params: OrderDeleteParams,
             requestOptions: RequestOptions,
         ): HttpResponse {
@@ -127,12 +132,12 @@ class OrderServiceImpl internal constructor(private val clientOptions: ClientOpt
                 HttpRequest.builder()
                     .method(HttpMethod.DELETE)
                     .baseUrl(clientOptions.baseUrl())
-                    .addPathSegments("st0re", "order", params._pathParam(0))
+                    .addPathSegments("st000re", "order", params._pathParam(0))
                     .apply { params._body()?.let { body(json(clientOptions.jsonMapper, it)) } }
                     .build()
-                    .prepare(clientOptions, params)
+                    .prepareAsync(clientOptions, params)
             val requestOptions = requestOptions.applyDefaults(RequestOptions.from(clientOptions))
-            val response = clientOptions.httpClient.execute(request, requestOptions)
+            val response = clientOptions.httpClient.executeAsync(request, requestOptions)
             return errorHandler.handle(response).parseable {
                 response.use { deleteHandler.handle(it) }
             }

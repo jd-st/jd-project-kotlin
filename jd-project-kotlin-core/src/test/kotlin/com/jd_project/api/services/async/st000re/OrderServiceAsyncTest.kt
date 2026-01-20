@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless.
 
-package com.jd_project.api.services.async.st0re
+package com.jd_project.api.services.async.st000re
 
 import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClientAsync
@@ -21,7 +21,7 @@ internal class OrderServiceAsyncTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st0re().orders()
+        val orderServiceAsync = client.st000re().orders()
 
         val order =
             orderServiceAsync.create(
@@ -46,7 +46,7 @@ internal class OrderServiceAsyncTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st0re().orders()
+        val orderServiceAsync = client.st000re().orders()
 
         val order = orderServiceAsync.retrieve(0L)
 
@@ -61,7 +61,7 @@ internal class OrderServiceAsyncTest {
                 .baseUrl(TestServerExtension.BASE_URL)
                 .apiKey("My API Key")
                 .build()
-        val orderServiceAsync = client.st0re().orders()
+        val orderServiceAsync = client.st000re().orders()
 
         orderServiceAsync.delete(0L)
     }
