@@ -333,6 +333,25 @@ val client: JdProjectClient = JdProjectOkHttpClient.builder()
     .build()
 ```
 
+### Connection pooling
+
+To customize the underlying OkHttp connection pool, configure the client using the `maxIdleConnections` and `keepAliveDuration` methods:
+
+```kotlin
+import com.jd_project.api.client.JdProjectClient
+import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
+import java.time.Duration
+
+val client: JdProjectClient = JdProjectOkHttpClient.builder()
+    .fromEnv()
+    // If `maxIdleConnections` is set, then `keepAliveDuration` must be set, and vice versa.
+    .maxIdleConnections(10)
+    .keepAliveDuration(Duration.ofMinutes(2))
+    .build()
+```
+
+If both options are unset, OkHttp's default connection pool settings are used.
+
 ### HTTPS
 
 > [!NOTE]
