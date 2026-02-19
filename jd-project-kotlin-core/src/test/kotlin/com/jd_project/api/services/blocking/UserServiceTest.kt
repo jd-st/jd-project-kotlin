@@ -5,7 +5,6 @@ package com.jd_project.api.services.blocking
 import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.users.User
-import com.jd_project.api.models.users.UserCreateWithListParams
 import com.jd_project.api.models.users.UserLoginParams
 import com.jd_project.api.models.users.UserUpdateParams
 import org.junit.jupiter.api.Disabled
@@ -111,20 +110,18 @@ internal class UserServiceTest {
 
         val user =
             userService.createWithList(
-                UserCreateWithListParams.builder()
-                    .addItem(
-                        User.builder()
-                            .id(1L)
-                            .email("take five")
-                            .firstName("take five")
-                            .lastName("take five")
-                            .password("take five")
-                            .phone("take five")
-                            .username("take five")
-                            .userStatus(1)
-                            .build()
-                    )
-                    .build()
+                listOf(
+                    User.builder()
+                        .id(1L)
+                        .email("take five")
+                        .firstName("take five")
+                        .lastName("take five")
+                        .password("take five")
+                        .phone("take five")
+                        .username("take five")
+                        .userStatus(1)
+                        .build()
+                )
             )
 
         user.validate()
