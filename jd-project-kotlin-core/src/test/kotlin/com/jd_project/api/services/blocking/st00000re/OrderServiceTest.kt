@@ -2,25 +2,18 @@
 
 package com.jd_project.api.services.blocking.st00000re
 
-import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
 import java.time.OffsetDateTime
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class OrderServiceTest {
 
     @Disabled("Prism tests are disabled")
     @Test
     fun create() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val orderService = client.st00000re().orders()
 
         val order =
@@ -41,11 +34,7 @@ internal class OrderServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val orderService = client.st00000re().orders()
 
         val order = orderService.retrieve(0L)
@@ -56,11 +45,7 @@ internal class OrderServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun delete() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val orderService = client.st00000re().orders()
 
         orderService.delete(0L)

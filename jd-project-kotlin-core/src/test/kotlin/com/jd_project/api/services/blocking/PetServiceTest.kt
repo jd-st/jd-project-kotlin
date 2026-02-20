@@ -2,7 +2,6 @@
 
 package com.jd_project.api.services.blocking
 
-import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.pets.Category
 import com.jd_project.api.models.pets.Pet
@@ -12,19 +11,13 @@ import com.jd_project.api.models.pets.PetUpdateByIdParams
 import com.jd_project.api.models.pets.PetUploadImageParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class PetServiceTest {
 
     @Disabled("Prism tests are disabled")
     @Test
     fun create() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val pet =
@@ -45,11 +38,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val pet = petService.retrieve(0L)
@@ -60,11 +49,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun update() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val pet =
@@ -85,11 +70,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun delete() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         petService.delete(0L)
@@ -98,11 +79,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun findByStatus() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val pets =
@@ -118,11 +95,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun findByTags() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val pets = petService.findByTags(PetFindByTagsParams.builder().addTag("string").build())
@@ -133,11 +106,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun updateById() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         petService.updateById(
@@ -148,11 +117,7 @@ internal class PetServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun uploadImage() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val petService = client.pets()
 
         val response =

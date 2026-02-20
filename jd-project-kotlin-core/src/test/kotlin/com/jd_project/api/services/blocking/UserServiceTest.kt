@@ -2,26 +2,19 @@
 
 package com.jd_project.api.services.blocking
 
-import com.jd_project.api.TestServerExtension
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.users.User
 import com.jd_project.api.models.users.UserLoginParams
 import com.jd_project.api.models.users.UserUpdateParams
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(TestServerExtension::class)
 internal class UserServiceTest {
 
     @Disabled("Prism tests are disabled")
     @Test
     fun create() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         val user =
@@ -44,11 +37,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun retrieve() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         val user = userService.retrieve("username")
@@ -59,11 +48,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun update() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         userService.update(
@@ -88,11 +73,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun delete() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         userService.delete("username")
@@ -101,11 +82,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun createWithList() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         val user =
@@ -130,11 +107,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun login() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         userService.login(
@@ -145,11 +118,7 @@ internal class UserServiceTest {
     @Disabled("Prism tests are disabled")
     @Test
     fun logout() {
-        val client =
-            JdProjectOkHttpClient.builder()
-                .baseUrl(TestServerExtension.BASE_URL)
-                .apiKey("My API Key")
-                .build()
+        val client = JdProjectOkHttpClient.builder().apiKey("My API Key").build()
         val userService = client.users()
 
         userService.logout()
