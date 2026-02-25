@@ -1,3 +1,5 @@
+// File generated from our OpenAPI spec by Stainless.
+
 package com.jd_project.api.core.http
 
 import com.jd_project.api.core.DefaultSleeper
