@@ -10,6 +10,7 @@ import com.jd_project.api.models.st00000re.St00000reListInventoryParams
 import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 import com.jd_project.api.services.async.st00000re.OrderServiceAsync
 
+/** Access to Petstore orders */
 interface St00000reServiceAsync {
 
     /**
@@ -24,6 +25,7 @@ interface St00000reServiceAsync {
      */
     fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reServiceAsync
 
+    /** Access to Petstore orders */
     fun orders(): OrderServiceAsync
 
     /** Returns a map of status codes to quantities */
@@ -50,6 +52,7 @@ interface St00000reServiceAsync {
             modifier: (ClientOptions.Builder) -> Unit
         ): St00000reServiceAsync.WithRawResponse
 
+        /** Access to Petstore orders */
         fun orders(): OrderServiceAsync.WithRawResponse
 
         /**
