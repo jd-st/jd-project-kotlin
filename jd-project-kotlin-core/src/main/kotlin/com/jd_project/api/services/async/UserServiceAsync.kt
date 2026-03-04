@@ -16,6 +16,7 @@ import com.jd_project.api.models.users.UserLogoutParams
 import com.jd_project.api.models.users.UserRetrieveParams
 import com.jd_project.api.models.users.UserUpdateParams
 
+/** Operations about user */
 interface UserServiceAsync {
 
     /**

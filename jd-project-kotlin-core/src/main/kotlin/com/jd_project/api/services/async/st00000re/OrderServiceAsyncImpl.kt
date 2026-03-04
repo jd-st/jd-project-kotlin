@@ -22,6 +22,7 @@ import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 import com.jd_project.api.models.st00000re.orders.OrderDeleteParams
 import com.jd_project.api.models.st00000re.orders.OrderRetrieveParams
 
+/** Access to Petstore orders */
 class OrderServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
     OrderServiceAsync {
 

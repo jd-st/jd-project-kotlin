@@ -43,10 +43,13 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
     override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): JdProjectClient =
         JdProjectClientImpl(clientOptions.toBuilder().apply(modifier).build())
 
+    /** Everything about your Pets */
     override fun pets(): PetService = pets
 
+    /** Access to Petstore orders */
     override fun st00000re(): St00000reService = st00000re
 
+    /** Operations about user */
     override fun users(): UserService = users
 
     override fun close() = clientOptions.close()
@@ -73,10 +76,13 @@ class JdProjectClientImpl(private val clientOptions: ClientOptions) : JdProjectC
                 clientOptions.toBuilder().apply(modifier).build()
             )
 
+        /** Everything about your Pets */
         override fun pets(): PetService.WithRawResponse = pets
 
+        /** Access to Petstore orders */
         override fun st00000re(): St00000reService.WithRawResponse = st00000re
 
+        /** Operations about user */
         override fun users(): UserService.WithRawResponse = users
     }
 }

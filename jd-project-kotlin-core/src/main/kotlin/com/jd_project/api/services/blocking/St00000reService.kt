@@ -10,6 +10,7 @@ import com.jd_project.api.models.st00000re.St00000reListInventoryParams
 import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 import com.jd_project.api.services.blocking.st00000re.OrderService
 
+/** Access to Petstore orders */
 interface St00000reService {
 
     /**
@@ -24,6 +25,7 @@ interface St00000reService {
      */
     fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reService
 
+    /** Access to Petstore orders */
     fun orders(): OrderService
 
     /** Returns a map of status codes to quantities */
@@ -46,6 +48,7 @@ interface St00000reService {
          */
         fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reService.WithRawResponse
 
+        /** Access to Petstore orders */
         fun orders(): OrderService.WithRawResponse
 
         /**

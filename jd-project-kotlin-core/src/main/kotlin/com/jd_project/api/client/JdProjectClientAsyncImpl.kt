@@ -43,10 +43,13 @@ class JdProjectClientAsyncImpl(private val clientOptions: ClientOptions) : JdPro
     override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): JdProjectClientAsync =
         JdProjectClientAsyncImpl(clientOptions.toBuilder().apply(modifier).build())
 
+    /** Everything about your Pets */
     override fun pets(): PetServiceAsync = pets
 
+    /** Access to Petstore orders */
     override fun st00000re(): St00000reServiceAsync = st00000re
 
+    /** Operations about user */
     override fun users(): UserServiceAsync = users
 
     override fun close() = clientOptions.close()
@@ -73,10 +76,13 @@ class JdProjectClientAsyncImpl(private val clientOptions: ClientOptions) : JdPro
                 clientOptions.toBuilder().apply(modifier).build()
             )
 
+        /** Everything about your Pets */
         override fun pets(): PetServiceAsync.WithRawResponse = pets
 
+        /** Access to Petstore orders */
         override fun st00000re(): St00000reServiceAsync.WithRawResponse = st00000re
 
+        /** Operations about user */
         override fun users(): UserServiceAsync.WithRawResponse = users
     }
 }

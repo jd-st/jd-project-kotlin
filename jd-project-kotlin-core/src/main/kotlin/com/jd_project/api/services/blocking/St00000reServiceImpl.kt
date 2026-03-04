@@ -19,6 +19,7 @@ import com.jd_project.api.models.st00000re.St00000reListInventoryResponse
 import com.jd_project.api.services.blocking.st00000re.OrderService
 import com.jd_project.api.services.blocking.st00000re.OrderServiceImpl
 
+/** Access to Petstore orders */
 class St00000reServiceImpl internal constructor(private val clientOptions: ClientOptions) :
     St00000reService {
 
@@ -33,6 +34,7 @@ class St00000reServiceImpl internal constructor(private val clientOptions: Clien
     override fun withOptions(modifier: (ClientOptions.Builder) -> Unit): St00000reService =
         St00000reServiceImpl(clientOptions.toBuilder().apply(modifier).build())
 
+    /** Access to Petstore orders */
     override fun orders(): OrderService = orders
 
     override fun listInventory(
@@ -59,6 +61,7 @@ class St00000reServiceImpl internal constructor(private val clientOptions: Clien
                 clientOptions.toBuilder().apply(modifier).build()
             )
 
+        /** Access to Petstore orders */
         override fun orders(): OrderService.WithRawResponse = orders
 
         private val listInventoryHandler: Handler<St00000reListInventoryResponse> =
