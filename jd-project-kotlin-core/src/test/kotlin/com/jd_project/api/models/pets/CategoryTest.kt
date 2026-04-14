@@ -11,16 +11,16 @@ internal class CategoryTest {
 
     @Test
     fun create() {
-        val category = Category.builder().id(1L).name("take five").build()
+        val category = Category.builder().id(1L).name("Dogs").build()
 
         assertThat(category.id()).isEqualTo(1L)
-        assertThat(category.name()).isEqualTo("take five")
+        assertThat(category.name()).isEqualTo("Dogs")
     }
 
     @Test
     fun roundtrip() {
         val jsonMapper = jsonMapper()
-        val category = Category.builder().id(1L).name("take five").build()
+        val category = Category.builder().id(1L).name("Dogs").build()
 
         val roundtrippedCategory =
             jsonMapper.readValue(
