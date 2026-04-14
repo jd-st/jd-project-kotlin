@@ -12,12 +12,12 @@ internal class PetCreateParamsTest {
         PetCreateParams.builder()
             .pet(
                 Pet.builder()
-                    .name("take five")
-                    .addPhotoUrl("take five")
-                    .id(1L)
-                    .category(Category.builder().id(1L).name("take five").build())
+                    .name("doggie")
+                    .addPhotoUrl("string")
+                    .id(10L)
+                    .category(Category.builder().id(1L).name("Dogs").build())
                     .status(Pet.Status.AVAILABLE)
-                    .addTag(Pet.Tag.builder().id(1L).name("take five").build())
+                    .addTag(Pet.Tag.builder().id(0L).name("name").build())
                     .build()
             )
             .build()
@@ -29,12 +29,12 @@ internal class PetCreateParamsTest {
             PetCreateParams.builder()
                 .pet(
                     Pet.builder()
-                        .name("take five")
-                        .addPhotoUrl("take five")
-                        .id(1L)
-                        .category(Category.builder().id(1L).name("take five").build())
+                        .name("doggie")
+                        .addPhotoUrl("string")
+                        .id(10L)
+                        .category(Category.builder().id(1L).name("Dogs").build())
                         .status(Pet.Status.AVAILABLE)
-                        .addTag(Pet.Tag.builder().id(1L).name("take five").build())
+                        .addTag(Pet.Tag.builder().id(0L).name("name").build())
                         .build()
                 )
                 .build()
@@ -44,12 +44,12 @@ internal class PetCreateParamsTest {
         assertThat(body)
             .isEqualTo(
                 Pet.builder()
-                    .name("take five")
-                    .addPhotoUrl("take five")
-                    .id(1L)
-                    .category(Category.builder().id(1L).name("take five").build())
+                    .name("doggie")
+                    .addPhotoUrl("string")
+                    .id(10L)
+                    .category(Category.builder().id(1L).name("Dogs").build())
                     .status(Pet.Status.AVAILABLE)
-                    .addTag(Pet.Tag.builder().id(1L).name("take five").build())
+                    .addTag(Pet.Tag.builder().id(0L).name("name").build())
                     .build()
             )
     }
@@ -58,11 +58,11 @@ internal class PetCreateParamsTest {
     fun bodyWithoutOptionalFields() {
         val params =
             PetCreateParams.builder()
-                .pet(Pet.builder().name("take five").addPhotoUrl("take five").build())
+                .pet(Pet.builder().name("doggie").addPhotoUrl("string").build())
                 .build()
 
         val body = params._body()
 
-        assertThat(body).isEqualTo(Pet.builder().name("take five").addPhotoUrl("take five").build())
+        assertThat(body).isEqualTo(Pet.builder().name("doggie").addPhotoUrl("string").build())
     }
 }

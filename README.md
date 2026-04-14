@@ -485,8 +485,8 @@ import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 
 val params: OrderCreateParams = PetCreateParams.builder()
     .pet(Pet.builder()
-        .name("take five")
-        .addPhotoUrl("take five")
+        .name("doggie")
+        .addPhotoUrl("string")
         .build())
     .name(JsonMissing.of())
     .build()
