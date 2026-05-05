@@ -5,10 +5,14 @@ package com.jd_project.api.errors
 import com.jd_project.api.core.JsonValue
 import com.jd_project.api.core.checkRequired
 import com.jd_project.api.core.http.Headers
+import com.jd_project.api.core.jsonMapper
 
 class UnprocessableEntityException
 private constructor(private val headers: Headers, private val body: JsonValue, cause: Throwable?) :
-    JdProjectServiceException("422: $body", cause) {
+    JdProjectServiceException(
+        "422: ${if (body.isMissing()) "Unknown" else jsonMapper().writeValueAsString(body)}",
+        cause,
+    ) {
 
     override fun statusCode(): Int = 422
 
