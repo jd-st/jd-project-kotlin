@@ -333,6 +333,21 @@ val client: JdProjectClient = JdProjectOkHttpClient.builder()
     .build()
 ```
 
+If the proxy responds with `407 Proxy Authentication Required`, supply credentials by also configuring `proxyAuthenticator`:
+
+```kotlin
+import com.jd_project.api.client.JdProjectClient
+import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
+import com.jd_project.api.core.http.ProxyAuthenticator
+
+val client: JdProjectClient = JdProjectOkHttpClient.builder()
+    .fromEnv()
+    .proxy(...)
+    // Or a custom implementation of `ProxyAuthenticator`.
+    .proxyAuthenticator(ProxyAuthenticator.basic("username", "password"))
+    .build()
+```
+
 ### Connection pooling
 
 To customize the underlying OkHttp connection pool, configure the client using the `maxIdleConnections` and `keepAliveDuration` methods:
