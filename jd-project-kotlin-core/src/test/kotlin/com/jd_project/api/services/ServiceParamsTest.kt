@@ -16,7 +16,8 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest
 import com.jd_project.api.client.JdProjectClient
 import com.jd_project.api.client.okhttp.JdProjectOkHttpClient
 import com.jd_project.api.models.Order
-import com.jd_project.api.models.st0re.St0reListInventoryParams
+import com.jd_project.api.models.st00000re.St00000reListInventoryParams
+import com.jd_project.api.models.st00000re.orders.OrderCreateParams
 import java.time.OffsetDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
@@ -38,14 +39,14 @@ internal class ServiceParamsTest {
                 .build()
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun listInventory() {
-        val st0reService = client.st0re()
+        val st00000reService = client.st00000re()
         stubFor(get(anyUrl()).willReturn(ok("{}")))
 
-        st0reService.listInventory(
-            St0reListInventoryParams.builder()
+        st00000reService.listInventory(
+            St00000reListInventoryParams.builder()
                 .putAdditionalHeader("Secret-Header", "42")
                 .putAdditionalQueryParam("secret_query_param", "42")
                 .build()
@@ -58,20 +59,26 @@ internal class ServiceParamsTest {
         )
     }
 
-    @Disabled("Prism tests are disabled")
+    @Disabled("Mock server tests are disabled")
     @Test
     fun create() {
-        val orderService = client.st0re().orders()
+        val orderService = client.st00000re().orders()
         stubFor(post(anyUrl()).willReturn(ok("{}")))
 
         orderService.create(
-            Order.builder()
-                .id(10L)
-                .complete(true)
-                .petId(198772L)
-                .quantity(7)
-                .shipDate(OffsetDateTime.parse("2019-12-27T18:11:19.117Z"))
-                .status(Order.Status.APPROVED)
+            OrderCreateParams.builder()
+                .order(
+                    Order.builder()
+                        .id(10L)
+                        .complete(true)
+                        .petId(198772L)
+                        .quantity(7)
+                        .shipDate(OffsetDateTime.parse("2019-12-27T18:11:19.117Z"))
+                        .status(Order.Status.APPROVED)
+                        .build()
+                )
+                .putAdditionalHeader("Secret-Header", "42")
+                .putAdditionalQueryParam("secret_query_param", "42")
                 .build()
         )
 

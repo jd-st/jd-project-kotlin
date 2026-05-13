@@ -16,6 +16,7 @@ import com.jd_project.api.models.users.UserLogoutParams
 import com.jd_project.api.models.users.UserRetrieveParams
 import com.jd_project.api.models.users.UserUpdateParams
 
+/** Operations about user */
 interface UserService {
 
     /**
@@ -94,6 +95,13 @@ interface UserService {
         params: UserCreateWithListParams = UserCreateWithListParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
     ): User
+
+    /** @see createWithList */
+    fun createWithList(
+        items: List<User>,
+        requestOptions: RequestOptions = RequestOptions.none(),
+    ): User =
+        createWithList(UserCreateWithListParams.builder().items(items).build(), requestOptions)
 
     /** @see createWithList */
     fun createWithList(requestOptions: RequestOptions): User =
@@ -231,6 +239,14 @@ interface UserService {
             params: UserCreateWithListParams = UserCreateWithListParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponseFor<User>
+
+        /** @see createWithList */
+        @MustBeClosed
+        fun createWithList(
+            items: List<User>,
+            requestOptions: RequestOptions = RequestOptions.none(),
+        ): HttpResponseFor<User> =
+            createWithList(UserCreateWithListParams.builder().items(items).build(), requestOptions)
 
         /** @see createWithList */
         @MustBeClosed

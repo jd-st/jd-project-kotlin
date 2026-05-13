@@ -16,6 +16,7 @@ import com.jd_project.api.models.users.UserLogoutParams
 import com.jd_project.api.models.users.UserRetrieveParams
 import com.jd_project.api.models.users.UserUpdateParams
 
+/** Operations about user */
 interface UserServiceAsync {
 
     /**
@@ -100,6 +101,13 @@ interface UserServiceAsync {
         params: UserCreateWithListParams = UserCreateWithListParams.none(),
         requestOptions: RequestOptions = RequestOptions.none(),
     ): User
+
+    /** @see createWithList */
+    suspend fun createWithList(
+        items: List<User>,
+        requestOptions: RequestOptions = RequestOptions.none(),
+    ): User =
+        createWithList(UserCreateWithListParams.builder().items(items).build(), requestOptions)
 
     /** @see createWithList */
     suspend fun createWithList(requestOptions: RequestOptions): User =
@@ -240,6 +248,14 @@ interface UserServiceAsync {
             params: UserCreateWithListParams = UserCreateWithListParams.none(),
             requestOptions: RequestOptions = RequestOptions.none(),
         ): HttpResponseFor<User>
+
+        /** @see createWithList */
+        @MustBeClosed
+        suspend fun createWithList(
+            items: List<User>,
+            requestOptions: RequestOptions = RequestOptions.none(),
+        ): HttpResponseFor<User> =
+            createWithList(UserCreateWithListParams.builder().items(items).build(), requestOptions)
 
         /** @see createWithList */
         @MustBeClosed

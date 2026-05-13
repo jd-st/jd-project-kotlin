@@ -28,6 +28,7 @@ import com.jd_project.api.models.pets.PetUpdateParams
 import com.jd_project.api.models.pets.PetUploadImageParams
 import com.jd_project.api.models.pets.PetUploadImageResponse
 
+/** Everything about your Pets */
 class PetServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
     PetServiceAsync {
 

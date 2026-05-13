@@ -27,6 +27,7 @@ import com.jd_project.api.models.users.UserLogoutParams
 import com.jd_project.api.models.users.UserRetrieveParams
 import com.jd_project.api.models.users.UserUpdateParams
 
+/** Operations about user */
 class UserServiceAsyncImpl internal constructor(private val clientOptions: ClientOptions) :
     UserServiceAsync {
 

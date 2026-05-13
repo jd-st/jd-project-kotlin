@@ -4,7 +4,7 @@ package com.jd_project.api.client
 
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.services.async.PetServiceAsync
-import com.jd_project.api.services.async.St0reServiceAsync
+import com.jd_project.api.services.async.St00000reServiceAsync
 import com.jd_project.api.services.async.UserServiceAsync
 
 /**
@@ -43,10 +43,13 @@ interface JdProjectClientAsync {
      */
     fun withOptions(modifier: (ClientOptions.Builder) -> Unit): JdProjectClientAsync
 
+    /** Everything about your Pets */
     fun pets(): PetServiceAsync
 
-    fun st0re(): St0reServiceAsync
+    /** Access to Petstore orders */
+    fun st00000re(): St00000reServiceAsync
 
+    /** Operations about user */
     fun users(): UserServiceAsync
 
     /**
@@ -76,10 +79,13 @@ interface JdProjectClientAsync {
             modifier: (ClientOptions.Builder) -> Unit
         ): JdProjectClientAsync.WithRawResponse
 
+        /** Everything about your Pets */
         fun pets(): PetServiceAsync.WithRawResponse
 
-        fun st0re(): St0reServiceAsync.WithRawResponse
+        /** Access to Petstore orders */
+        fun st00000re(): St00000reServiceAsync.WithRawResponse
 
+        /** Operations about user */
         fun users(): UserServiceAsync.WithRawResponse
     }
 }

@@ -4,7 +4,7 @@ package com.jd_project.api.client
 
 import com.jd_project.api.core.ClientOptions
 import com.jd_project.api.services.blocking.PetService
-import com.jd_project.api.services.blocking.St0reService
+import com.jd_project.api.services.blocking.St00000reService
 import com.jd_project.api.services.blocking.UserService
 
 /**
@@ -43,10 +43,13 @@ interface JdProjectClient {
      */
     fun withOptions(modifier: (ClientOptions.Builder) -> Unit): JdProjectClient
 
+    /** Everything about your Pets */
     fun pets(): PetService
 
-    fun st0re(): St0reService
+    /** Access to Petstore orders */
+    fun st00000re(): St00000reService
 
+    /** Operations about user */
     fun users(): UserService
 
     /**
@@ -72,10 +75,13 @@ interface JdProjectClient {
          */
         fun withOptions(modifier: (ClientOptions.Builder) -> Unit): JdProjectClient.WithRawResponse
 
+        /** Everything about your Pets */
         fun pets(): PetService.WithRawResponse
 
-        fun st0re(): St0reService.WithRawResponse
+        /** Access to Petstore orders */
+        fun st00000re(): St00000reService.WithRawResponse
 
+        /** Operations about user */
         fun users(): UserService.WithRawResponse
     }
 }
